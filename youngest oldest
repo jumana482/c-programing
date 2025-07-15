@@ -1,0 +1,30 @@
+#include <stdio.h>
+void find_youngest_oldest(int n)
+{
+    if (n <= 0) {
+        return;
+    }
+    int age[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &age[i]);
+        if (age[i] < 0) {
+            return;
+        }
+    }
+    int youngest = age[0], oldest = age[0];
+    for (int i = 1; i < n; i++) {
+        if (age[i] < youngest)
+            youngest = age[i];
+        if (age[i] > oldest)
+            oldest = age[i];
+    }
+    printf("Youngest=%d\nOldest=%d\n", youngest, oldest);
+}
+int main() {
+    int n1, n2;
+    scanf("%d", &n1);
+    find_youngest_oldest(n1);
+    scanf("%d", &n2);
+    find_youngest_oldest(n2);
+    return 0;
+}
